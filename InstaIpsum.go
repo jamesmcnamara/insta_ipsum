@@ -1,9 +1,10 @@
-package ipsum
+package main 
 
 import (
 	"net/http"
 	"net/url"
 	"fmt"
+    "os"
 	"regexp"
 	"strings"
 	)
@@ -47,4 +48,8 @@ func cleanText(text []byte, clean_text bool) string {
 func GetIpsum(paragraphs string, clean_text bool) string {
 	raw_text := pullText(paragraphs)
 	return cleanText(raw_text, clean_text)
+}
+
+func main() {
+    fmt.Println(GetIpsum(os.Args[1], true))
 }
